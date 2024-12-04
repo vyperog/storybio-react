@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
+import SwipeIndicator from './SwipeIndicator';
 
-const Card = ({ image, link, onSwipe, style }) => {
+const Card = ({ image, link, onSwipe, style, isFirst, isLast }) => {
     const cardRef = useRef(null);
     const [startX, setStartX] = useState(0);
 
@@ -27,6 +28,8 @@ const Card = ({ image, link, onSwipe, style }) => {
         >
             <img src={image} alt="Social Media" className="w-full h-full object-cover" />
             <a href={link} className="absolute inset-0 cursor-pointer"></a>
+            {isFirst && <SwipeIndicator direction="right" />}
+            {isLast && <SwipeIndicator direction="left" />}
         </div>
     );
 };
