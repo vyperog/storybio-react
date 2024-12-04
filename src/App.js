@@ -53,6 +53,8 @@ function App() {
                         link={data.link}
                         onSwipe={navigate}
                         style={{ transform: `translateX(${(index - currentIndex) * 100}%)` }}
+                        isFirst={index === 0 && currentIndex === 0}
+                        isLast={index === cardData.length - 1 && currentIndex === cardData.length - 1}
                     />
                 ))}
             </div>
